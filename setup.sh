@@ -1,3 +1,5 @@
 BASE=`pwd`
-ln -s $HOME/.WebIde80/config/codestyles/eXolnet.xml $BASE/codestyles/eXolnet.xml
-ln -s $HOME/.WebIde80/config/templates/eXolnet.xml $BASE/templates/eXolnet.xml
+TARGET=$HOME/Library/Preferences/WebIde80
+mkdir -p $TARGET/codestyles $TARGET/templates
+ln -s $BASE/codestyles/eXolnet.xml $TARGET/codestyles/eXolnet.xml
+ln -s $BASE/templates/eXolnet.xml $TARGET/templates/eXolnet.xml
