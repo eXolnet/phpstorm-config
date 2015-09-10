@@ -220,4 +220,46 @@
       <option name="PHP" value="true" />
     </context>
   </template>
+  <template name="ti" value="//==========================================================================&#10;// Index&#10;//==========================================================================&#10;&#10;public function testIndexRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('GET', $BASE_PATH$);&#10;&#9;$this-&gt;assertRouteMatchesAction('GET', $BASE_PATH$, $CONTROLLER$.'@index');&#10;}&#10;&#10;public function testIndexGet()&#10;{&#10;&#9;$this-&gt;get($BASE_PATH$);&#10;&#10;&#9;$this-&gt;assertResponseOk();&#10;}" description="Test index" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="tc" value="//==========================================================================&#10;// Create&#10;//==========================================================================&#10;&#10;public function testCreateRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('GET', '$BASE_PATH$/create');&#10;&#9;$this-&gt;assertRouteMatchesAction('GET', '$BASE_PATH$/create', $CONTROLLER$.'@create');&#10;}&#10;&#10;public function testCreateGet()&#10;{&#10;&#9;$this-&gt;get('$BASE_PATH$/create');&#10;&#10;&#9;$this-&gt;assertResponseOk();&#10;}" description="Test create" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="ts" value="//==========================================================================&#10;// Store&#10;//==========================================================================&#10;&#10;public function testStoreRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('POST', $BASE_PATH$);&#10;&#9;$this-&gt;assertRouteMatchesAction('POST', $BASE_PATH$, $CONTROLLER$.'@store');&#10;}&#10;&#10;public function testStorePost()&#10;{&#10;&#9;$data = [];&#10;&#9;$this-&gt;post($BASE_PATH$, $data);&#10;&#10;&#9;$this-&gt;displayErrors();&#10;&#9;$this-&gt;assertRedirectedTo($this-&gt;storeRedirect());&#10;&#9;$this-&gt;assertNotice('success');&#10;}&#10;&#10;public function storeRedirect()&#10;{&#10;&#9;return $BASE_PATH$;&#10;}&#10;&#10;public function testStoreEmptyPost()&#10;{&#10;&#9;$this-&gt;post($BASE_PATH$);&#10;&#10;&#9;$this-&gt;assertRedirectedTo('$BASE_PATH$/create');&#10;&#9;$this-&gt;assertNotice('error');&#10;}" description="Test store" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="te" value="//==========================================================================&#10;// Edit&#10;//==========================================================================&#10;&#10;public function testEditRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('GET', '$BASE_PATH$/1/edit');&#10;&#9;$this-&gt;assertRouteMatchesAction('GET', '$BASE_PATH$/1/edit', $CONTROLLER$.'@edit');&#10;}&#10;&#10;public function testEditGet()&#10;{&#10;&#9;$this-&gt;get('$BASE_PATH$/1/edit');&#10;&#10;&#9;$this-&gt;assertResponseOk();&#10;}" description="Test edit" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="tu" value="//==========================================================================&#10;// Update&#10;//==========================================================================&#10;&#10;public function testUpdateRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('PUT', '$BASE_PATH$/1');&#10;&#9;$this-&gt;assertRouteMatchesAction('PUT', '$BASE_PATH$/1', $CONTROLLER$.'@update');&#10;}&#10;&#10;public function testUpdateMissingPost()&#10;{&#10;&#9;$this-&gt;expectResponseMissing();&#10;&#10;&#9;$this-&gt;put('$BASE_PATH$/0');&#10;}&#10;&#10;public function testUpdatePost()&#10;{&#10;&#9;$data = [];&#10;&#9;$this-&gt;put('$BASE_PATH$/1', $data);&#10;&#10;&#9;$this-&gt;displayErrors();&#10;&#9;$this-&gt;assertRedirectedTo($this-&gt;updateRedirect());&#10;&#9;$this-&gt;assertNotice('success');&#10;}&#10;&#10;public function updateRedirect()&#10;{&#10;&#9;return $BASE_PATH$;&#10;}&#10;&#10;public function testUpdateEmptyPost()&#10;{&#10;&#9;$this-&gt;put('$BASE_PATH$/1');&#10;&#10;&#9;$this-&gt;assertRedirectedTo('$BASE_PATH$/1/edit');&#10;&#9;$this-&gt;assertNotice('error');&#10;}&#10;&#10;public function testUpdateInvalidPost()&#10;{&#10;&#9;$data = [];&#10;&#9;$this-&gt;put('$BASE_PATH$/1', $data);&#10;&#10;&#9;$this-&gt;assertRedirectedTo('$BASE_PATH$/1/edit');&#10;&#9;$this-&gt;assertNotice('error');&#10;}" description="Test update" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="td" value="//==========================================================================&#10;// Destroy&#10;//==========================================================================&#10;&#10;public function testDestroyRouteExists()&#10;{&#10;&#9;$this-&gt;assertRouteExists('DELETE', '$BASE_PATH$/1');&#10;&#9;$this-&gt;assertRouteMatchesAction('DELETE', '$BASE_PATH$/1', $CONTROLLER$.'@destroy');&#10;}&#10;&#10;public function testDestroyGet()&#10;{&#10;&#9;$this-&gt;delete('$BASE_PATH$/1');&#10;&#10;&#9;$this-&gt;displayErrors();&#10;&#9;$this-&gt;assertRedirectedTo($this-&gt;destroyRedirect());&#10;&#9;$this-&gt;assertNotice('success');&#10;}&#10;&#10;public function destroyRedirect()&#10;{&#10;&#9;return $BASE_PATH$;&#10;}&#10;&#10;public function testDestroyMissingGet()&#10;{&#10;&#9;$this-&gt;expectResponseMissing();&#10;&#10;&#9;$this-&gt;delete('$BASE_PATH$/0');&#10;}" description="Test destroy" toReformat="false" toShortenFQNames="true">
+    <variable name="BASE_PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTROLLER" expression="classNameComplete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
 </templateSet>
