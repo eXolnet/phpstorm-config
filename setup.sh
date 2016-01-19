@@ -2,7 +2,7 @@
 set -u
 
 BASE=`pwd`
-for i in 7 8 9
+for i in 7 8 9 10 11
 do
 	TARGET=$HOME/Library/Preferences/WebIde${i}0
 	mkdir -p $TARGET/codestyles $TARGET/templates
